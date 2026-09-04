@@ -1,8 +1,11 @@
 import streamlit as st
+import os
 import requests
 import json
 import pandas as pd
 import numpy as np
+from dotenv import load_dotenv
+load_dotenv("d:/sih/SIH2026/.env")
 
 st.set_page_config(
     page_title="LAYCAN · Bulk Freight Procurement Co-Pilot",
