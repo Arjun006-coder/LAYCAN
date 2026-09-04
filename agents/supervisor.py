@@ -1,4 +1,4 @@
-﻿"""
+"""
 Multi-Agent Supervisor, Specialists, Critic and Decision Memo Engine.
 Strictly enforces the rule: Language models synthesize, explain, and challenge;
 NUMERICAL SOLVERS COMPUTE ALL NUMBERS.
@@ -93,11 +93,16 @@ def run_decision_agents(
             - Critic Notes: {critic_objections[0]}
             Do not hallucinate any numbers not provided above.
             """
-            response = client.models.generate_content(
-                model='gemini-2.0-flash',
-                contents=prompt
-            )
-            ai_narrative = response.text
+            for model_candidate in ['gemini-3.6-flash', 'gemini-1.5-flash']:
+                try:
+                    response = client.models.generate_content(
+                        model=model_candidate,
+                        contents=prompt
+                    )
+                    ai_narrative = response.text
+                    break
+                except Exception:
+                    continue
         except Exception as e:
             ai_narrative = f"Generated via Decision Engine: Market indicates {timing_res['recommended_action']} due to reservation rate threshold of ${timing_res['reservation_rate_today']}/mt vs current market quote ${current_market_quote_usd}/mt. {vessel_res['recommended_vessel_class']} is optimal to prevent port draft penalties."
     else:

@@ -1,4 +1,4 @@
-﻿"""
+"""
 Fleet and Vessel Optimization Solver: MILP / Exhaustive Feasibility and Landed Cost Evaluator.
 Evaluates Handysize, Supramax, Ultramax, Panamax, Kamsarmax, and Capesize across port restrictions and lightering.
 """
@@ -46,17 +46,33 @@ def optimize_vessel_choice(
             
         actual_lift_mt = min(cargo_volume_mt, intake_res["cargo_intake_mt"])
         
-        # Lightering penalty check
+        # Short-lift deadfreight penalty: if vessel cannot carry the required cargo, remaining cargo must be moved separately
+        short_lift_penalty = 0.0
+        if actual_lift_mt < cargo_volume_mt:
+            unmoved_pct = (cargo_volume_mt - actual_lift_mt) / cargo_volume_mt
+            short_lift_penalty = unmoved_pct * 8.50  # Deadfreight / split shipment penalty ($/t)
+
+        # Lightering penalty check: Haldia (8.5m) requires full lightering; Paradip (16m) requires part-lightering for Capesize
         lightering_needed = False
         lightering_cost_per_mt = 0.0
         lightering_days = 0.0
         
-        if v_specs["summer_draft_m"] > float(discharge_port.get("max_draft_m", 14.5)):
-            if discharge_port.get("unlocode") in ["INHAL", "INPRT"]:
+        port_draft = float(discharge_port.get("max_draft_m", 14.5))
+        if port_draft <= 10.0:  # e.g. Haldia river
+            if v_class in ["Capesize", "Kamsarmax", "Panamax"]:
+                lightering_needed = True
+                lightering_cost_per_mt = 5.20  # Extensive barge transshipment at Sandheads
+                lightering_days = 6.0
+            elif v_class == "Supramax":
+                lightering_needed = True
+                lightering_cost_per_mt = 2.80
+                lightering_days = 3.0
+        elif port_draft < v_specs["summer_draft_m"]:
+            if v_class == "Capesize":
                 lightering_needed = True
                 lightering_cost_per_mt = 2.90
                 lightering_days = 3.5
-                
+
         # Total landed economics
         voyage_res = calculate_voyage_economics(
             freight_rate_usd_per_mt=scale_freight,
@@ -72,20 +88,20 @@ def optimize_vessel_choice(
             port_waiting_days=float(discharge_port.get("waiting_days", 2.0)) + lightering_days
         )
         
-        net_landed_cost_per_mt = scale_freight + lightering_cost_per_mt + (voyage_res["net_demurrage_usd"] / actual_lift_mt if actual_lift_mt > 0 else 0)
+        net_landed_cost_per_mt = scale_freight + lightering_cost_per_mt + short_lift_penalty + (voyage_res["net_demurrage_usd"] / actual_lift_mt if actual_lift_mt > 0 else 0)
         
         suitability_score = 100
         disqualification_reasons = []
         
-        if not intake_res["feasible"] and not lightering_needed:
-            suitability_score = 0
-            disqualification_reasons.append("Physical port berth dimension violation")
+        if port_draft <= 10.0 and v_class == "Capesize":
+            suitability_score = 15
+            disqualification_reasons.append("Extreme draft violation: Capesize unfeasible for direct Haldia berthing")
         elif lightering_needed and v_class == "Capesize":
-            suitability_score = 62
-            disqualification_reasons.append("Requires Sandheads part-lightering (+2.90 $/mt + 3.5 days)")
+            suitability_score = 50
+            disqualification_reasons.append(f"Sandheads part-lightering mandatory (+${lightering_cost_per_mt:.2f}/mt, +{lightering_days:.1f} days)")
         elif actual_lift_mt < cargo_volume_mt * 0.8:
-            suitability_score -= 30
-            disqualification_reasons.append("Severe draft-deficit forces short-lift")
+            suitability_score -= 35
+            disqualification_reasons.append(f"Severe short-lift: Can only carry {actual_lift_mt:,.0f} MT of {cargo_volume_mt:,.0f} MT required")
             
         options.append({
             "vessel_class": v_class,
@@ -100,8 +116,15 @@ def optimize_vessel_choice(
             "tce_usd_day": voyage_res["tce_usd_per_day"]
         })
         
-    options.sort(key=lambda x: x["net_landed_cost_per_mt"])
-    recommended = next((o for o in options if o["suitability_score"] >= 80), options[0])
+    # Sort eligible options: filter out disqualified vessels (score < 40)
+    eligible = [o for o in options if o["suitability_score"] >= 60]
+    if not eligible:
+        eligible = [o for o in options if o["suitability_score"] >= 30]
+    if not eligible:
+        eligible = options
+
+    eligible.sort(key=lambda x: x["net_landed_cost_per_mt"])
+    recommended = eligible[0]
     
     return {
         "cargo_mt": cargo_volume_mt,
