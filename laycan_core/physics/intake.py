@@ -1,4 +1,4 @@
-﻿"""
+"""
 Physics Engine: Draft-limited cargo intake solver with Hydrostatics (TPC, FWA, DWA) and Load Lines.
 """
 from typing import Dict, Any, Optional
@@ -25,7 +25,8 @@ def calculate_intake(
     summer_draft = float(vessel.get("summer_draft_m", 14.5))
     summer_dwt = float(vessel.get("dwt_typical", 75000.0))
     tpc = float(vessel.get("tpc", 65.0))
-    grain_cap_m3 = float(vessel.get("grain_capacity_m3", 95000.0))
+    # Capesize typical grain cubic is ~210,000 m3; Panamax ~95,000 m3. Default to summer_dwt * 1.25 if not provided
+    grain_cap_m3 = float(vessel.get("grain_capacity_m3", summer_dwt * 1.28))
     stowage_factor = float(cargo.get("stowage_factor_typical", 1.25))
     
     port_max_draft = float(port.get("max_draft_m", 14.5))
