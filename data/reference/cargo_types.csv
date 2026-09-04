@@ -1,0 +1,8 @@
+﻿cargo_id,name,stowage_factor_m3_mt_min,stowage_factor_m3_mt_max,stowage_factor_typical,weight_or_volume_limited,imsbc_group,hazards,notes,source_ref,confidence
+CCOAL,Coking Coal,1.15,1.30,1.22,weight,A_and_C,flammable_self-heating,"Origin-dependent. Australian HCC ~1.20-1.25. Typical: weight-limited in all vessel classes.",standard_IMSBC_estimates_verify,medium
+TCOAL,Thermal Coal,1.20,1.45,1.30,weight,A_and_C,flammable_self-heating,"Origin-dependent. Indonesian sub-bituminous ~1.35-1.45 (lower density). Usually weight-limited.",standard_IMSBC_estimates_verify,medium
+IORE,Iron Ore,0.35,0.45,0.40,weight,A,liquefaction_risk,"Emphatically weight-limited. High density. Fines have liquefaction risk - IMSBC Group A.",standard_IMSBC_estimates_verify,high
+IOREP,Iron Ore Pellets,0.35,0.40,0.38,weight,C,none,"Pellets: higher angle of repose than fines. Still weight-limited. No liquefaction risk.",standard_IMSBC_estimates_verify,medium
+LIME,Limestone,0.70,0.95,0.85,weight,C,none,"Weight-limited. Used in steel production (flux). Density varies by origin.",standard_IMSBC_estimates_verify,medium
+BAUX,Bauxite,0.60,0.80,0.70,weight_or_volume,A,liquefaction_risk,"Some bauxite grades have liquefaction risk. Check moisture content. Usually weight-limited.",standard_IMSBC_estimates_verify,medium
+FERT,Fertiliser,1.00,1.80,1.40,volume_possible,B_and_C,varies,"Wide stowage factor range. Some grades (granular urea ~1.30) weight-limited; others volume-limited. Check cargo-specific SF.",standard_IMSBC_estimates_verify,low

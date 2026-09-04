@@ -1,0 +1,33 @@
+assumption_id,scope,key,value,unit,rationale,supersede_with,owner,status
+handling_rate_INPRT,port:INPRT,handling_rate_mtpd,30000,t/day,"Paradip coal berths #2/#3 are mechanised with high-capacity unloaders. 30000 t/day is a mid-range mechanised discharge assumption pending the IPA operational statistics figure.",IPA annual operational statistics (turnaround time and output per ship berth day) at ipa.nic.in; or Paradip Port Authority berth productivity circular,data,assumed
+handling_rate_INVTZ-OH,port:INVTZ-OH,handling_rate_mtpd,35000,t/day,"VGCB is a modern mechanised coal terminal designed for Capesize discharge; assumed higher than Paradip.",Visakhapatnam Port Authority terminal specification or IPA statistics,data,assumed
+handling_rate_INVTZ-IH,port:INVTZ-IH,handling_rate_mtpd,15000,t/day,"Inner harbour berths are partly gear-dependent and smaller; assumed materially slower than the outer harbour.",Visakhapatnam Port Authority berth productivity data,data,assumed
+handling_rate_INGAW,port:INGAW,handling_rate_mtpd,45000,t/day,"Gangavaram is highly mechanised and publicly claims among the fastest dry bulk discharge rates in India. Assumed the highest of the East Coast set.",Adani APSEZ / Gangavaram Port published berth productivity,data,assumed
+handling_rate_INDHA,port:INDHA,handling_rate_mtpd,40000,t/day,"Dhamra operates grab unloaders rated 2800 tph across multiple cranes per the port record; 40000 t/day is a conservative daily equivalent allowing for stoppages.",Adani Dhamra published unloader ratings and observed discharge records,data,assumed
+handling_rate_INKRP,port:INKRP,handling_rate_mtpd,40000,t/day,"Krishnapatnam is all-weather mechanised with five Capesize-capable berths.",Adani Krishnapatnam terminal specification,data,assumed
+handling_rate_INGOP,port:INGOP,handling_rate_mtpd,20000,t/day,"Gopalpur has three multipurpose berths with mechanised coal import; assumed mid-range.",Adani Gopalpur terminal specification,data,assumed
+handling_rate_INHAL,port:INHAL,handling_rate_mtpd,12000,t/day,"Haldia coal handling at Berth 3, tidal river port with dredging constraints; assumed slow.",Syama Prasad Mookerjee Port (Kolkata) berth productivity statistics,data,assumed
+handling_rate_AUNEW,port:AUNEW,handling_rate_mtpd,60000,t/day,"PWCS Kooragang is one of the world's largest coal loading terminals; loading is far faster than discharge.",Port of Newcastle / PWCS published shiploader rates,data,assumed
+handling_rate_AUHAY,port:AUHAY,handling_rate_mtpd,65000,t/day,"DBCT is a dedicated coal export terminal designed for 220000 DWT vessels.",DBCT published shiploader capacity,data,assumed
+handling_rate_AUGLA,port:AUGLA,handling_rate_mtpd,50000,t/day,"Gladstone coal terminals; assumed slightly below Newcastle.",Gladstone Ports Corporation port handbook,data,assumed
+handling_rate_AUABP,port:AUABP,handling_rate_mtpd,45000,t/day,"Abbot Point / NQXT single terminal.",NQXT terminal specification,data,assumed
+port_cost_INPRT,port:INPRT,port_disbursements_usd,85000,USD,"Agency, pilotage, towage, berth hire and dues for a Panamax-to-Capesize bulk call at an Indian major port. Order-of-magnitude assumption.",A real port disbursement account (DA) from a port agent for a comparable call,data,assumed
+port_cost_INVTZ-OH,port:INVTZ-OH,port_disbursements_usd,90000,USD,"As Paradip; outer harbour Capesize call.",Port agent DA,data,assumed
+port_cost_INVTZ-IH,port:INVTZ-IH,port_disbursements_usd,70000,USD,"Smaller vessels, inner harbour.",Port agent DA,data,assumed
+port_cost_INGAW,port:INGAW,port_disbursements_usd,95000,USD,"Private port tariff, Capesize call.",Port agent DA,data,assumed
+port_cost_INDHA,port:INDHA,port_disbursements_usd,92000,USD,"Private port tariff, Capesize call.",Port agent DA,data,assumed
+port_cost_INKRP,port:INKRP,port_disbursements_usd,92000,USD,"Private port tariff, Capesize call.",Port agent DA,data,assumed
+port_cost_INGOP,port:INGOP,port_disbursements_usd,65000,USD,"Smaller private port.",Port agent DA,data,assumed
+port_cost_INHAL,port:INHAL,port_disbursements_usd,75000,USD,"Includes river pilotage over a long tidal passage, which is expensive.",Port agent DA,data,assumed
+port_cost_AUNEW,port:AUNEW,port_disbursements_usd,60000,USD,"Australian load port call.",Port agent DA,data,assumed
+port_cost_AUHAY,port:AUHAY,port_disbursements_usd,60000,USD,"Australian load port call.",Port agent DA,data,assumed
+port_cost_AUGLA,port:AUGLA,port_disbursements_usd,58000,USD,"Australian load port call.",Port agent DA,data,assumed
+port_cost_AUABP,port:AUABP,port_disbursements_usd,58000,USD,"Australian load port call.",Port agent DA,data,assumed
+distance_AUNEW_INPRT,route:AUNEW-INPRT,distance_nm,6150,nm,"Newcastle to Paradip routing north of Australia through Torres Strait or south and west through the Indonesian archipelago. Great-circle understates this materially.",A published port-to-port distance table, or an AIS-derived median track for the route,data,assumed
+distance_AUHAY_INPRT,route:AUHAY-INPRT,distance_nm,5450,nm,"Hay Point is further north than Newcastle, shortening the Indian voyage.",Published distance table or AIS median track,data,assumed
+distance_AUNEW_INVTZ-OH,route:AUNEW-INVTZ-OH,distance_nm,6050,nm,"Slightly shorter than Paradip.",Published distance table or AIS median track,data,assumed
+distance_AUNEW_INGAW,route:AUNEW-INGAW,distance_nm,6040,nm,"Adjacent to Visakhapatnam.",Published distance table or AIS median track,data,assumed
+distance_AUNEW_INHAL,route:AUNEW-INHAL,distance_nm,6300,nm,"Further up the Bay of Bengal, plus the Hooghly river passage.",Published distance table or AIS median track,data,assumed
+laytime_rate_default,global,agreed_laytime_rate_mtpd,25000,t/day,"The laytime rate agreed in the charterparty is a commercial term and is usually below the port's physical capability, which is what creates demurrage exposure.",The actual charterparty clause from a SAIL fixture,commercial,assumed
+demurrage_default,global,demurrage_usd_per_day,25000,USD/day,"Mid-cycle Panamax/Capesize demurrage. Highly market-dependent and negotiated per fixture.",The actual charterparty clause from a SAIL fixture,commercial,assumed
+barge_rate_default,global,barge_rate_usd_per_t,6.5,USD/t,"East Coast India transhipment lighterage. Varies with parcel size and monsoon season.",A quote from a transhipment operator at Sandheads or Vizag outer anchorage,commercial,assumed

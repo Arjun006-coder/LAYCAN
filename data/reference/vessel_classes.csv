@@ -1,0 +1,9 @@
+﻿class_id,name,dwt_min,dwt_max,dwt_typical,loa_m,beam_m,summer_draft_m,tpc,grain_capacity_m3,holds,geared,speed_ballast_kn,speed_laden_kn,consumption_ballast_mtpd,consumption_laden_mtpd,consumption_port_mtpd,constants_mt,source_ref,confidence
+HS,Handysize,10000,40000,28000,169,27,9.9,unknown,unknown,4,yes,12.5,12.0,18,22,2,300,unverified_estimate_verify_EU_MRV,low
+SMAX,Supramax,40000,60000,52000,190,32,12.5,unknown,unknown,5,yes,13.0,12.5,24,28,2.5,350,unverified_estimate_verify_EU_MRV,low
+UMAX,Ultramax,60000,65000,63000,199,32,13.0,unknown,unknown,5,yes,13.5,13.0,25,29,2.5,360,unverified_estimate_verify_EU_MRV,low
+PMAX,Panamax,65000,80000,75000,225,32,14.0,unknown,unknown,7,no,13.0,12.5,28,32,2.5,400,unverified_estimate_verify_EU_MRV,low
+KMAX,Kamsarmax,80000,85000,82000,229,32,14.5,unknown,unknown,7,no,13.0,12.5,30,34,2.5,430,unverified_estimate_verify_EU_MRV,low
+PPMAX,Post-Panamax,85000,120000,100000,255,40,16.5,unknown,unknown,8,no,13.5,12.5,38,44,3.0,550,unverified_estimate_verify_EU_MRV,low
+CAPE,Capesize,150000,200000,180000,290,45,18.0,unknown,unknown,9,no,14.5,13.5,55,62,3.5,800,unverified_estimate_verify_EU_MRV,low
+NCAPE,Newcastlemax,200000,215000,208000,299,50,18.6,unknown,unknown,9,no,14.5,13.5,60,68,3.5,900,unverified_estimate_verify_EU_MRV,low
