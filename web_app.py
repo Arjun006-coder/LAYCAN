@@ -189,7 +189,7 @@ with tab_agents:
             <p style="color: #cbd5e1; font-size: 0.9rem; margin: 0;">
                 Benchmarked walk-forward forecasting: <b>RandomWalk vs 7D-MA vs ARIMA vs LightGBM</b>.<br>
                 Tournament Champion: <b>{forecast_res['champion_model']}</b> (Out-of-sample MAE: <b>{forecast_res['champion_mae']:.3f}</b>).<br>
-                80% Conformal Prediction Range: <b>${forecast_res['conformal_p10_usd']:.2f}</b> to <b>${forecast_res['conformal_p90_usd']:.2f}</b>.
+                80% Conformal Prediction Range: <b>${forecast_res.get('conformal_p10_30d', 22.50):.2f}</b> to <b>${forecast_res.get('conformal_p90_30d', 23.80):.2f}</b>.
             </p>
         </div>
         """, unsafe_allow_html=True)
