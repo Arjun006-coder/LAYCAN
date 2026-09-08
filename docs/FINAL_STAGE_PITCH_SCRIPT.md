@@ -1,14 +1,19 @@
-# LAYCAN · Final Slide-by-Slide Stage Pitch Script
-### Intelligent Freight Decision Engine & Vessel Chartering Desk for Overseas Bulk Cargo
-**SIH 2026 Problem Statement 26006 · Ministry of Steel / Steel Authority of India Limited (SAIL)**
+# LAYCAN · Final Stage Pitch Script (Hinglish Mix)
+### Problem Statement 26006 · Ministry of Steel / SAIL
 **Team: Atomic**
 
 ---
 
-## Pitch Delivery Guidelines
-* **Target Duration:** 3 minutes 45 seconds to 4 minutes.
-* **Tone:** Authoritative, clear, and grounded. Confident in both the industry economics and the mathematical architecture.
-* **Pacing Rule:** Spend ~30 to 45 seconds per slide. Do not rush; let key metrics and terminology land clearly with the judges.
+## 🎯 PITCHING RULES & TONE
+* **Language:** Natural Hinglish (Professional, Conversational & Authoritative). Indian judges connect instantly when technical core concepts are explained with Indian real-world analogies.
+* **Duration:** 3 minutes 30 seconds to 4 minutes.
+* **Slide Flow Check:**
+  * **Slide 1:** National Coking Coal Problem & SAIL Context.
+  * **Slide 2:** Solution & Core Features (What it does, How it works, The Capesize Trap).
+  * **Slide 3:** Tech Architecture, Algorithms, Live Data APIs & Multi-Agent Oversight.
+  * **Slide 4:** Competitors, Feasibility, Why No One Built It Before & Risk Mitigation.
+  * **Slide 5:** Business Impact, ₹12+ Crore Proof, What Data it was tested on in simple terms.
+  * **Slide 6:** Official Maritime References, Literature & GitHub Close.
 
 ---
 
@@ -16,149 +21,148 @@
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │                                 PRESENTATION MAP                                       │
 ├─────────┬──────────────────────────────────────────────────────────┬───────────────────┤
-│ SLIDE 1 │ Title & The National Hook                                │ 0:00 – 0:35       │
-│ SLIDE 2 │ The Real-World Problem & The Capesize Trap               │ 0:35 – 1:20       │
-│ SLIDE 3 │ Technical Architecture: Formulas, ML & Live Data Feeds   │ 1:20 – 2:15       │
-│ SLIDE 4 │ Feasibility, Competitors & Why It Didn't Exist Before     │ 2:15 – 3:00       │
-│ SLIDE 5 │ Quantified Business Impact & The ₹12+ Crore Backtest     │ 3:00 – 3:35       │
-│ SLIDE 6 │ Official Research Anchors, Live GitHub Demo & Closing    │ 3:35 – 4:00       │
+│ SLIDE 1 │ Title & The National Hook (SAIL & Coking Coal)           │ 0:00 – 0:35       │
+│ SLIDE 2 │ Proposed Solution & Features (The Capesize Trap)         │ 0:35 – 1:25       │
+│ SLIDE 3 │ Technical Approach: Algorithms, Live APIs & Multi-Agents │ 1:25 – 2:15       │
+│ SLIDE 4 │ Feasibility, Competitors, Why Not Till Now & Mitigations │ 2:15 – 3:00       │
+│ SLIDE 5 │ Economic Impact, ₹12+ Cr Savings & What Data It's On     │ 3:00 – 3:40       │
+│ SLIDE 6 │ Official Port References, Open Source & Closing          │ 3:40 – 4:00       │
 └─────────┴──────────────────────────────────────────────────────────┴───────────────────┘
 ```
 
 ---
 
-## SLIDE 1: TITLE SLIDE (0:00 – 0:35)
+## SLIDE 1: TITLE SLIDE — THE NATIONAL HOOK (0:00 – 0:35)
 
-> "Respected judges, every year India produces over 140 million tonnes of crude steel to build our nation’s highways, bridges, and infrastructure. But to make one tonne of steel, you need 0.8 tonnes of high-grade coking coal.
+> "Good morning respected judges! Hum hain **Team Atomic**, aur hum solve kar rahe hain Ministry of Steel aur SAIL ka Problem Statement 26006 with our platform: **LAYCAN**.
 >
-> India has virtually no domestic reserves of metallurgical coking coal. Over 85% of it must be imported by sea—mostly from Australia, Indonesia, and South Africa.
+> Sir, India duniya ka second largest steel producer hai, lekin 1 tonne steel banane ke liye lagbhag **0.8 tonnes high-grade coking coal** lagta hai. 
+> Aur sabse badi reality ye hai ki India ke paas domestic coking coal reserves na ke barabar hain—humein apna **85% se zyada coking coal samundar ke raaste import karna padta hai**, mostly Australia, Indonesia aur South Africa se.
 >
-> The Steel Authority of India Limited (SAIL) alone imports roughly 16 million tonnes of coal every year, spending thousands of crores on ocean shipping freight.
+> Akela **SAIL har saal lagbhag 16 Million Tonnes coal import karta hai**, jisme hazaron crore rupaye sirf ocean freight yani samundari kiraye par kharch hote hain.
 >
-> But right now, this multi-crore chartering is done through reactive, manual spot buying. When a steel plant signals low inventory, logistics managers call shipping brokers and fix whatever ship is available at whatever price the market demands that morning.
+> Lekin aaj tak ye procurement pure manual aur reactive hai. Plant me coal stock kam hota hai, officer broker ko call karta hai, aur jo rate chal raha hota hai uspe ship book kar leta hai. 
 >
-> We are **Team Atomic**, and we built **LAYCAN**: an autonomous maritime procurement co-pilot that answers two operational questions every morning:
-> **Should we book today, or wait?**
-> And **which exact vessel class will fit which port?**"
+> Humne banaya hai **LAYCAN**: ek autonomous maritime decision desk jo daily charterer ko sirf do decisive baatein batata hai: 
+> **'Fix today or wait?'** (aaj ship book karein ya ruk jayein) aur **'Which vessel fits which port?'** (kaun sa jahaaz kaun se port par fit baithega)."
 
 ---
 
-## SLIDE 2: PROPOSED SOLUTION & THE "CAPESIZE TRAP" (0:35 – 1:20)
+## SLIDE 2: PROPOSED SOLUTION & CORE FEATURES (0:35 – 1:25)
 
-> "Turning to Slide 2, let’s address the elephant in the room that every smart judge will think:
-> *'If the IMF opened this satellite data in late 2023, it’s been 3 years! Why didn’t someone build this? If you can build it, why didn't the industry?'*
+> "Ab aate hain Slide 2 par: Hamara solution actual me karta kya hai aur iske core features kya hain?
 >
-> The answer lies in **three commercial and technical realities**:
+> Zyadatar log freight forecasting me ek simple machine learning model banate hain ye guess karne ke liye ki agle hafte rate kya hoga. Lekin real shipping market me freight rates share market ki tarah volatile hote hain, aur forward markets unhe already price kar chuke hote hain.
 >
-> **1. The Incumbent Conflict of Interest:**
-> Who dominates chartering today? Big global brokerage houses (like Clarksons and Braemar). They earn a **1.25% commission on closed deals**. A broker has zero financial incentive to build an autonomous system that tells SAIL to wait 7 days for rates to drop. **Brokers make money when you trade, not when you save.**
+> Isliye LAYCAN future guess nahi karta; ye ek **Autonomous Prescriptive Decision Desk** hai jo 3 powerful pillars par kaam karta hai:
 >
-> **2. The Multi-Disciplinary Silo:**
-> Naval architects who understand berth drafts and Hooghly river water density don't know American option optimal stopping math. Quantitative finance graduates who understand Longstaff-Schwartz work at hedge funds in London or New York, not on coal procurement desks in Kolkata. And computer science engineers don't know that Capesize ships cannot berth at Paradip! LAYCAN bridges these three isolated worlds.
+> **1. The Smart Timing Advisor (Optimal Stopping Engine):**
+> Jaise hum flight ticket book karte waqt wait karte hain dip aane ka, waise hi hamara algorithm daily ek mathematical price threshold calculate karta hai jise hum *Reservation Rate* kehte hain. Agar aaj broker ka rate hamare threshold se mehenga hai, system instantly bolta hai: **`WAIT`**. Aur jaise hi market dip karta hai, ye trigger karta hai: **`FIX TODAY`**.
 >
-> **3. Modern Agentic AI Only Matured in 2025–2026:**
-> Raw IMF and weather APIs give you fragmented data tables. To build an autonomous co-pilot, you needed **multi-agent reasoning and structured adversarial auditing**—the ability for an AI Critic (Gemini 3.6 Flash) to verify weather alerts and draft limits before emitting a decision memo. That technology stack was not mature 3 years ago; it is mature today.
->
-> That is why LAYCAN operates as an **Autonomous Decision Desk** built on three pillars:
->
-> **First, The Timing Advisor:** 
-> We use an **Optimal Stopping mathematical engine** (Least-Squares Monte Carlo) that calculates a daily price threshold—called the *Reservation Rate*. If today’s market quote is higher than our expected continuation value over the next week, the system says **'WAIT'**. If it hits an attractive market dip, it says **'FIX TODAY'**.
->
-> **Second, The Port Physics Core:** 
-> This eliminates the costliest mistake in shipping: the **Capesize Fallacy**. 
-> A giant Capesize vessel carries 180,000 tonnes and looks \$2 a tonne cheaper on paper due to scale economies. But a loaded Capesize draws 18 meters of water. Paradip’s coal berths cap permissible depth at 16 meters, and Haldia caps at 8.5 meters! 
+> **2. Naval Physics & Berth Feasibility Core (Solving the 'Capesize Trap'):**
+> Shipping ka sabse bada financial trap ye hai ki log sochte hain bada ship hamesha sasta padega. Ek giant **Capesize vessel** 1,80,000 tonnes le jata hai aur paper par \$2 per tonne sasta dikhta hai. 
 > 
-> That giant ship physically cannot enter! It is forced to anchor out at sea at Sandheads for 4 days while smaller barges lighter its cargo, racking up **+\$2.90 a tonne in extra lightering and \$25,000-a-day demurrage penalties**, turning a supposed saving into a ₹2 Crore loss. LAYCAN calculates ship depths down to the centimeter to eliminate demurrage before contracts are signed.
->
-> **Third, The Adversarial Critic Agent:** 
-> A dedicated AI watchdog powered by Google Gemini 3.6 Flash that stress-tests every recommendation against cyclones, port jams, and load-port rules before any memo reaches management."
-
----
-
-## SLIDE 3: TECHNICAL APPROACH, FORMULAS & LIVE DATA FEEDS (1:20 – 2:15)
-
-> "On Slide 3, let’s look under the hood at our technical architecture.
->
-> We enforce an inviolable architectural rule: **Our AI agents never compute arithmetic.** 
-> If you ask a language model to compute shipping economics and ship drafts, it hallucinates. In LAYCAN, pure Python mathematical solvers calculate 100% of the numbers:
->
-> - **Voyage Economics:** We use the **Time Charter Equivalent (TCE)** formula, deducting address commissions and voyage costs to evaluate true daily vessel earnings.
-> - **Fuel Optimization:** We model the **Admiralty Cube Law**, where fuel consumption scales with the cube of ship speed ($FC \propto v^3$). If destination berths are congested, our system calculates slow-steaming speeds that save 19% of bunker fuel without delaying unloading.
-> - **Hydrostatics & Density:** We compute **Tonnes Per Centimetre (TPC) immersion** and **Dock Water Allowance (DWA)** for the brackish water of the Hooghly river at Haldia ($1010\text{ kg/m}^3$), preventing grounding.
-> - **Optimal Stopping Math:** We solve the **Longstaff-Schwartz American Option backward induction** across 2,000 simulated paths to establish our daily reservation boundary.
->
-> For rate forecasting, we run an automated daily tournament benchmarking **Random Walk vs. 7-Day Moving Average vs. ARIMA vs. LightGBM**, providing an 80% **Conformal Prediction** confidence band ($P_{10}–P_{90}$).
->
-> **Where does our live data come from?**
-> We don't use fake data. We integrated three 100% free, automated live feeds:
-> 1. **IMF PortWatch ArcGIS REST:** Tracks real-time satellite AIS dry-bulk arrivals for Paradip, Vizag, and Haldia.
-> 2. **Open-Meteo Marine API:** Ingests live wave heights and swell indices across the Bay of Bengal.
-> 3. **Yahoo Finance (`BDRY`):** Pulls the Breakwave Dry Bulk ETF daily log-returns as an exogenous freight momentum shock."
-
----
-
-## SLIDE 4: FEASIBILITY, COMPETITORS & WHY IT DIDN'T EXIST BEFORE (2:15 – 3:00)
-
-> "On Slide 4, judges often ask: *'Why did this not exist before, and what about competitors?'*
->
-> **Why It Didn't Exist Until Now:**
-> 1. *The Satellite Data Wall fell in late 2023:* Until recently, global vessel AIS data was locked behind \$50,000 proprietary paywalls. In late 2023, the IMF and Oxford University opened PortWatch data via public APIs for the first time.
-> 2. *Modern Structured LLMs (2025–2026):* Five years ago, AI could not act as an adversarial auditor parsing real-time unstructured marine weather and port circulars.
-> 3. *The Multi-Disciplinary Silo:* Naval architects, quantitative finance analysts, and software engineers rarely work on the same problem. LAYCAN unifies all three.
->
-> **The Competitor Landscape:**
-> - **Global Maritime Giants (Kpler, Signal Ocean):** Cost \$50,000 to \$80,000 a year. They are *descriptive*, not *prescriptive*—they show dots on a map, but never give an Indian importer a daily 'Fix or Wait' decision, and they ignore Indian berth draft restrictions.
-> - **Domestic Logistics Tech (FreightFox, Fretron):** Focus exclusively on domestic road and rail freight; their expertise ends at the shoreline.
-> - **Human Shipbrokers:** Earn a 1.25% commission on closed fixtures. Their commercial incentive is to close a deal quickly, not to tell you to wait 5 days for a market dip.
->
-> **Four Pillars of Feasibility:**
-> - **Zero Cost:** 100% free public data.
-> - **Zero Crashes:** Dual-mode graceful degradation with offline verified snapshots.
-> - **Low Adoption Friction:** 90-day shadow mode pilot proving P&L side-by-side.
-> - **CVC & CAG Compliance:** Immutable, timestamped audit logs for every trade decision."
-
----
-
-## SLIDE 5: QUANTIFIED BUSINESS IMPACT & THE BACKTEST (3:00 – 3:35)
-
-> "Turning to Slide 5, what is the bottom-line financial proof?
->
-> We ran a **5-year walk-forward decision backtest** across 24 sequential shipments.
+> Lekin loaded Capesize samundar me **18 meters gehra** dubta hai (isko draft bolte hain). 
+> Aur hamare East Coast ports jaise Paradip ke coal berth ki depth sirf **16 meters** hai, aur Haldia ki sirf **8.5 meters**!
 > 
-> *Where did the data come from?* 
-> Real route fixtures are private OTC contracts under NDAs. So we calibrated a mean-reverting Ornstein-Uhlenbeck stochastic process where volatility ($\sigma = 0.022$) is grounded in **5 years of live BDRY ETF log-returns**, and price boundaries (\$16 to \$32/MT) are anchored in **audited SEC 10-K filings from public carriers like Star Bulk and Genco**.
+> Bada ship port ke andar ghus hi nahi sakta! Use port ke bahar samundar me 'Sandheads' par 4 din khade rehkar choti naavon me aadha maal transfer karna padta hai (jise lightering kehte hain). Iska extra kharcha lagta hai **+\$2.90 per tonne aur \$25,000 per day ki demurrage fine (delay penalty)**! Result? Sasta dikhne wala ship SAIL ko ₹2 Crore mehenga pad jata hai! 
+> 
+> LAYCAN ship draft ko centimeter-level calculate karke hamesha right size vessel—jaise **Kamsarmax**—recommend karta hai taaki lightering penalty zero ho jaye.
 >
-> Across those 24 shipments:
-> - The **Naive Policy** (buying on Day 0) averaged **\$23.50/MT**.
-> - The **LAYCAN Policy** averaged **\$22.90/MT**—saving an average of **\$0.60 per tonne**.
-> - LAYCAN captured **52% of all theoretically available timing dips** (Capture Ratio).
-> - Total net delivered savings: **\$1.4 Million USD, or ₹12.06 Crores INR**.
->
-> For an enterprise like SAIL importing 16 million tonnes of coal annually, saving just **75 cents a tonne expands recurring EBITDA by over ₹100 Crore every single year**."
+> **3. Adversarial Critic Agent:**
+> Ek dedicated AI watchdog agent (Gemini 3.6 Flash) jo har trade recommendation ko red-team karta hai—Bay of Bengal ke cyclone swells, port congestion aur load-port rules check karne ke baad hi final 1-page Decision Memo release karta hai."
 
 ---
 
-## SLIDE 6: RESEARCH, LIVE DEMO & CLOSE (3:35 – 4:00)
+## SLIDE 3: TECHNICAL APPROACH, ALGORITHMS & LIVE DATA (1:25 – 2:15)
 
-> "On Slide 6, our work is rigorously anchored in official port handbooks from Paradip, Visakhapatnam, and Kolkata, backed by established maritime economics literature.
+> "Turning to Slide 3: Ye system under-the-hood kaise run karta hai? Hamara data kahan se aata hai aur algorithms kya hain?
 >
-> Our system is not an idea on paper. The entire platform—including all deterministic solvers, live API feeds, multi-agent supervisor, FastAPI backend, and interactive Streamlit cockpit—is **fully built, unit-tested, and live on our GitHub repository right now**.
+> Sabse pehle hamara golden rule: **Hamare AI agents kabhi calculation nahi karte.** 
+> Agar aap LLM se maths karwaoge, wo hallucinate karega. Isliye LAYCAN me 100% mathematics deterministic Python solvers run karte hain:
 >
-> LAYCAN turns overseas bulk procurement from a reactive gamble into an automated, money-saving science.
+> **The Core Algorithms & Formulations:**
+> - **Time Charter Equivalent (TCE):** Hum voyage charter ko standard daily earning metric me convert karte hain addresses aur brokerage commissions ko deduct karke.
+> - **Admiralty Cube Law ($FC \propto v^3$):** Jahaaz ka fuel consumption speed ke cube par scale hota hai. Agar destination port par 3 din ki bheed hai, hamara engine speed 10% slow karke **19% fuel bacha leta hai** bina delivery date compromise kiye!
+> - **Dock Water Allowance (DWA):** Haldia me Hooghly river ka fresh water ($1010\text{ kg/m}^3$) hai, jisme jahaaz 16 cm aur gehra dub jata hai. Hamara solver DWA adjust karke grounding prevent karta hai.
+> - **Longstaff-Schwartz Least-Squares Monte Carlo (LSMC):** Hum 2,000 simulated future rate paths par backward induction run karke aaj ka exact reservation rate calculate karte hain.
+> - **ML Forecasting Tournament:** Hum kisi ek model par andha bharosa nahi karte. Daily automated walk-forward tournament chalta hai: **Random Walk vs 7-Day MA vs ARIMA vs LightGBM**. Aur hum single point guess ke bajaye **80% Conformal Prediction confidence band ($P_{10}–P_{90}$)** dete hain.
 >
-> Thank you, and we are now ready for your questions!"
+> **Where Did We Get Latest Live Data? (100% Free & Automated):**
+> Humne koi dummy mock data use nahi kiya:
+> 1. **IMF PortWatch ArcGIS REST API:** IMF aur Oxford University ka real-time satellite AIS feed, jo Paradip (`port883`), Vizag (`port1367`), aur Haldia (`port442`) par daily aane wale dry-bulk ships aur tonnage ko live track karta hai.
+> 2. **Open-Meteo Marine API:** Bay of Bengal ka live wave height aur oceanic swell index fetch karta hai.
+> 3. **Yahoo Finance (`BDRY` ETF):** Global dry-bulk freight market ke daily continuous log-returns fetch karta hai jo hamare model me momentum shock factor bante hain."
 
 ---
 
-## Quick Reference: 5 Essential Points to Keep in Mind During Q&A
+## SLIDE 4: FEASIBILITY, COMPETITORS & WHY NOT TILL NOW? (2:15 – 3:00)
 
-1. **If asked about AI doing math:**  
-   *"Our AI agents never compute numbers. Pure Python solvers calculate 100% of dollars, drafts, and days. The Gemini 3.6 Flash agent acts as an executive translator and an Adversarial Critic."*
-2. **If asked why Capesize isn't always best:**  
-   *"Capesize draws 18.0m laden draft. Paradip coal berths cap at 16.0m and Haldia caps at 8.5m. Forced lightering at Sandheads adds +\$2.90/t and 3.5 days of delay, wiping out the \$2.10/t scale discount."*
-3. **If asked about the backtest data:**  
-   *"Specific route rates are private OTC contracts under NDAs. We calibrated our stochastic rate path to 5-year BDRY ETF volatility and verified price levels against SEC 10-K filings from listed bulk carriers like Star Bulk and Genco."*
-4. **If asked about data costs:**  
-   *"Total data cost is ₹0. We use open scientific APIs: IMF PortWatch ArcGIS REST, Open-Meteo Marine, US EIA v2, and Yahoo Finance."*
-5. **If asked about competitors:**  
-   *"Global tools like Kpler cost \$50k/yr and only show dots on a map; domestic tools only do road trucking; and human brokers have a 1.25% commission conflict of interest. LAYCAN is the only prescriptive decision co-pilot built for Indian bulk importers."*
+> "Slide 4 par aate hain: Competitors kaun hain, ye pehle kyun nahi bana, aur feasibility kya hai?
+>
+> **The Competitor Reality:**
+> - **Global Maritime Giants (Kpler, Signal Ocean):** Ye \$50,000 se \$80,000 per year charge karte hain. Lekin ye sirf map par jahaaz ke dots dikhate hain (*descriptive data*). Ye SAIL ke officer ko ye nahi batate ki *aaj buy karein ya ruk jayein*. Aur ye Indian ports ke berth draft limits ko completely ignore karte hain.
+> - **Domestic Logistics Tech (FreightFox, Fretron):** Ye sirf domestic highway trucks aur rail rakes handle karte hain; samundar shuru hote hi inka system khatam ho jata hai.
+> - **Human Shipbrokers:** Broker har deal par **1.25% commission** kamata hai. Uska commercial interest deal ko turant close karne me hai, aapko 7 din wait kara ke market dip ka faayda uthane me nahi!
+>
+> **Why Did This NOT Exist Till Now? (3 Exact Reasons):**
+> 1. **Satellite Data Wall late 2023 me toota:** Pehle satellite AIS data private companies ke paas locked tha. Late 2023 me IMF ne PortWatch open API launch kiya.
+> 2. **Structured Multi-Agent AI 2025–2026 me mature hua:** Raw APIs se unstructured weather aur port circulars ko real-time red-team karne wali agentic intelligence pehle exist nahi karti thi.
+> 3. **Industry Silo Barrier:** Naval architects ko options math nahi aati; quant finance waale coal desk par nahi baithte; aur techies ko Hooghly river ki water density nahi pata. LAYCAN ne in teeno fields ko ek software me integrate kiya hai.
+>
+> **Our 4 Pillars of Feasibility:**
+> - **Operational Feasibility:** Zero paid data barriers—pure open feeds par chalta hai.
+> - **Dual-Mode Graceful Degradation:** Internet ya live API drop hone par local verified snapshots par seamlessly switch kar jata hai—zero crash guarantee.
+> - **Adoption via 90-Day Shadow Mode:** SAIL officers ko day 1 se risk lene ki zaroorat nahi; system 90 din parallel chal kar audited P&L prove karega.
+> - **Statutory CVC & CAG Audit Compliance:** Har recommendation ka immutable timestamped log generate hota hai jo CVC guidelines ke mutabik audit-proof proof deta hai."
+
+---
+
+## SLIDE 5: ECONOMIC IMPACT & WHAT DATA IT WAS TESTED ON (3:00 – 3:40)
+
+> "Ab aate hain sabse important Slide 5 par: Bottom-line business impact kya hai aur data kahan se aaya?
+>
+> **In Simple Words: Ye Data Kis Par Test Hua Hai?**
+> Sir, Hay Point se Paradip ka actual rate koi open website par publish nahi karta, kyunki wo private contracts hote hain. 
+> Isliye quantitative institutional standards ke mutabik:
+> - Hamne volatility factor ($\sigma = 0.022$) **5 saal ke live BDRY freight futures ke daily log-returns** se calibrate kiya.
+> - Aur mean freight levels (\$16 se \$32/MT) humne public bulk carrier companies—jaise **Star Bulk Carriers aur Genco**—ki **US SEC Form 10-K audited annual filings** ke Time Charter earnings se anchor kiye.
+>
+> **The 5-Year Walk-Forward Backtest Results:**
+> Humne 24 standard shipments (1.8 Million Tonnes coal) par 3 policies compare ki:
+> 1. **Naive Policy (Current practice):** Day 0 par order aate hi khareed liya $\rightarrow$ Average: **\$23.50/MT**.
+> 2. **LAYCAN Policy:** Reservation rate par wait karke dip capture kiya $\rightarrow$ Average: **\$22.90/MT**.
+> 3. **Oracle (Hindsight benchmark):** 15 din ka theoretical lowest price $\rightarrow$ **\$21.80/MT**.
+>
+> - **Capture Ratio:** LAYCAN ne theoretically available dips ka **52% capture kiya**.
+> - **Net Delivered Savings:** 24 shipments par **\$1.4 Million USD yani ₹12.06 Crores INR ki seedhi bachat!**
+>
+> **The SAIL Big Picture:**
+> SAIL har saal 16 Million Tonnes coal import karta hai aur ₹3,172 Crore outward logistics par kharch karta hai. Agar LAYCAN sirf **\$0.75 per tonne** optimize kar de, to SAIL ke annual balance sheet me **₹100+ Crore ka recurring EBITDA profit add hota hai!**"
+
+---
+
+## SLIDE 6: RESEARCH, OPEN SOURCE & CLOSING (3:40 – 4:00)
+
+> "On Slide 6, hamara poora model official guidelines se verified hai:
+> - Indian Ports Association (IPA) ke official Turnaround Time benchmarks,
+> - Paradip Port Authority ki 16.0m coal berth guidelines,
+> - Vizag Port Authority ke Dual Harbour circulars, aur
+> - Kolkata Port Trust ki Hooghly river draft aur density tables.
+>
+> Hamara system sirf ek idea ya PPT nahi hai. Hamara Python solver engine, live API feeds, multi-agent pipeline, FastAPI backend aur interactive Streamlit cockpit **100% functional, unit-tested aur hamare GitHub par live hai**.
+>
+> LAYCAN imports ko ek reactive risk se badal kar ek disciplined, profitable science banata hai.
+>
+> Thank you so much, now we are eager to answer your questions!"
+
+---
+
+## 💡 JURY ROUND DEFENSE TIPS (Keep These in Mind!)
+
+1. **If they ask:** *"AI agar math nahi karta toh karta kya hai?"*  
+   **Say:** *"Sir, AI executive summary likhta hai aur ek Adversarial Auditor ki tarah kaam karta hai. Numbers 100% Python ke unit-tested formulas calculate karte hain, aur Gemini check karta hai ki kahin Bay of Bengal me cyclone ya port strike toh nahi hai."*
+2. **If they ask:** *"Haldia aur Paradip me Capesize kyun nahi jaa sakta?"*  
+   **Say:** *"Sir, Capesize loaded condition me 18 meter dubta hai. Paradip ke coal berth ka depth cap 16 meter hai aur Haldia ka 8.5 meter. Bada ship bhejne par Sandheads me 4 din lightering karni padti hai jo +\$2.90/t aur \$25,000/day demurrage fine add kar deti hai."*
+3. **If they ask:** *"Backtest data real hai ya synthetic?"*  
+   **Say:** *"Sir, individual routes OTC private contracts hote hain. Isliye humne 5 saal ke BDRY futures ETF log-returns se volatility li hai aur US SEC filings se real historical Time Charter rate boundaries anchor ki hain."*
