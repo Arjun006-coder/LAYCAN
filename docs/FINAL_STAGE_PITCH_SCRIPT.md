@@ -45,11 +45,21 @@
 
 ## SLIDE 2: PROPOSED SOLUTION & THE "CAPESIZE TRAP" (0:35 – 1:20)
 
-> "Turning to Slide 2, let’s look at why current methods fail and what makes LAYCAN unique.
+> "Turning to Slide 2, let’s address the elephant in the room that every smart judge will think:
+> *'If the IMF opened this satellite data in late 2023, it’s been 3 years! Why didn’t someone build this? If you can build it, why didn't the industry?'*
 >
-> Most software projects try to train a machine learning model to guess next Friday’s freight rate. But in maritime finance, we know freight rates follow a near-random walk—forward markets already price them better than any neural net.
+> The answer lies in **three commercial and technical realities**:
 >
-> LAYCAN doesn't try to guess the future. It operates as an **Autonomous Decision Desk** built on three pillars:
+> **1. The Incumbent Conflict of Interest:**
+> Who dominates chartering today? Big global brokerage houses (like Clarksons and Braemar). They earn a **1.25% commission on closed deals**. A broker has zero financial incentive to build an autonomous system that tells SAIL to wait 7 days for rates to drop. **Brokers make money when you trade, not when you save.**
+>
+> **2. The Multi-Disciplinary Silo:**
+> Naval architects who understand berth drafts and Hooghly river water density don't know American option optimal stopping math. Quantitative finance graduates who understand Longstaff-Schwartz work at hedge funds in London or New York, not on coal procurement desks in Kolkata. And computer science engineers don't know that Capesize ships cannot berth at Paradip! LAYCAN bridges these three isolated worlds.
+>
+> **3. Modern Agentic AI Only Matured in 2025–2026:**
+> Raw IMF and weather APIs give you fragmented data tables. To build an autonomous co-pilot, you needed **multi-agent reasoning and structured adversarial auditing**—the ability for an AI Critic (Gemini 3.6 Flash) to verify weather alerts and draft limits before emitting a decision memo. That technology stack was not mature 3 years ago; it is mature today.
+>
+> That is why LAYCAN operates as an **Autonomous Decision Desk** built on three pillars:
 >
 > **First, The Timing Advisor:** 
 > We use an **Optimal Stopping mathematical engine** (Least-Squares Monte Carlo) that calculates a daily price threshold—called the *Reservation Rate*. If today’s market quote is higher than our expected continuation value over the next week, the system says **'WAIT'**. If it hits an attractive market dip, it says **'FIX TODAY'**.
@@ -57,7 +67,7 @@
 > **Second, The Port Physics Core:** 
 > This eliminates the costliest mistake in shipping: the **Capesize Fallacy**. 
 > A giant Capesize vessel carries 180,000 tonnes and looks \$2 a tonne cheaper on paper due to scale economies. But a loaded Capesize draws 18 meters of water. Paradip’s coal berths cap permissible depth at 16 meters, and Haldia caps at 8.5 meters! 
->
+> 
 > That giant ship physically cannot enter! It is forced to anchor out at sea at Sandheads for 4 days while smaller barges lighter its cargo, racking up **+\$2.90 a tonne in extra lightering and \$25,000-a-day demurrage penalties**, turning a supposed saving into a ₹2 Crore loss. LAYCAN calculates ship depths down to the centimeter to eliminate demurrage before contracts are signed.
 >
 > **Third, The Adversarial Critic Agent:** 
