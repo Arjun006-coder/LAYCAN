@@ -1,9 +1,13 @@
-﻿"""
+"""
 LAYCAN Enterprise FastAPI Engine: Exposes decision memos, what-if simulations, live market state, and backtest results.
 """
 import os
 import sys
-sys.path.append("d:/sih/SIH2026")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
