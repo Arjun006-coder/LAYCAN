@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -25,3 +25,10 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
+
+# Frontend
+**/node_modules/
+**/.output/
+**/.nitro/
+**/dist/
+

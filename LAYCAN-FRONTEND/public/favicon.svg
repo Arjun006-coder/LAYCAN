@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Circular oceanic badge background -->
+  <rect width="64" height="64" rx="14" fill="#0b1329"/>
+  
+  <!-- Subtle radar / sonar ring -->
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="32" cy="32" r="18" fill="none" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Ocean wave curves at bottom -->
+  <path d="M6 46 Q 16 41 26 46 T 46 46 T 58 46 L 58 58 L 6 58 Z" fill="#0284c7" opacity="0.35"/>
+  <path d="M6 50 Q 18 46 30 50 T 54 50 L 58 58 L 6 58 Z" fill="#38bdf8" opacity="0.5"/>
+
+  <!-- Bulk Carrier Ship Silhouette -->
+  <!-- Hull -->
+  <path d="M12 36 L17 45 Q 32 46 47 45 L52 36 Z" fill="#f97316"/>
+  
+  <!-- Deck / Superstructure (Bridge & Crane/Hold structure) -->
+  <rect x="18" y="27" width="10" height="9" fill="#f8fafc" rx="1"/>
+  <rect x="20" y="22" width="6" height="5" fill="#f8fafc" rx="0.5"/>
+  <rect x="22" y="17" width="2" height="5" fill="#f8fafc"/>
+  
+  <!-- Mast / Radar antenna -->
+  <line x1="23" y1="14" x2="23" y2="17" stroke="#38bdf8" stroke-width="1.5"/>
+  <circle cx="23" cy="14" r="1.5" fill="#38bdf8"/>
+  
+  <!-- Cargo Hatch Coamings -->
+  <rect x="31" y="32" width="6" height="4" fill="#cbd5e1" rx="0.5"/>
+  <rect x="39" y="32" width="6" height="4" fill="#cbd5e1" rx="0.5"/>
+  <rect x="47" y="33" width="3" height="3" fill="#cbd5e1" rx="0.5"/>
+
+  <!-- Navigational Signal Point -->
+  <circle cx="50" cy="16" r="3.5" fill="#22c55e"/>
+  <circle cx="50" cy="16" r="6" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+</svg>
