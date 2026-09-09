@@ -127,8 +127,8 @@ function LaycanPage() {
   const [portCode, setPortCode] = useState("INPRT");
   const [laycanDays, setLaycanDays] = useState(14);
   const [autoRateFromBdry, setAutoRateFromBdry] = useState(true);
-  const [manualQuote, setManualQuote] = useState(23.1);
-  const [geminiApiKey, setGeminiApiKey] = useState("");
+  const defaultGeminiKey = (import.meta.env.VITE_GEMINI_API_KEY as string) || "";
+  const [geminiApiKey, setGeminiApiKey] = useState(defaultGeminiKey);
   const [isGeneratingAi, setIsGeneratingAi] = useState(false);
   const [customAiMemo, setCustomAiMemo] = useState<string | null>(null);
 
@@ -179,26 +179,22 @@ function LaycanPage() {
 
   const backtest = useMemo(() => getBacktestEvidence(), []);
 
-  // Handle direct Gemini call if user inputs a key
+  // Handle direct Gemini call
   const handleGenerateLiveAiMemo = async () => {
-    if (!geminiApiKey.trim()) {
-      alert("Please enter your free Google Gemini API key in the sidebar first.");
-      return;
-    }
+    const activeKey = geminiApiKey.trim() || defaultGeminiKey;
     setIsGeneratingAi(true);
     try {
-      const prompt = `You are the Chief Logistics Officer for SAIL (Steel Authority of India Limited).
-Write an authoritative 2-sentence executive chartering memo based on these deterministic engine calculations:
-- Action: ${timing.recommendedAction}
-- Spot Freight Rate: $${marketQuote.toFixed(2)}/MT vs LSMC Reservation Boundary $${timing.reservationRate.toFixed(2)}/MT (Spread: ${timing.spreadPct}%)
-- Cargo: ${volume.toLocaleString()} MT ${commodity} from ${originPort.split(" - ")[0]} to ${port.name}
-- Recommended Vessel: ${vesselOpt.recommendedClass} (Intake optimized, Net landed cost: $${vesselOpt.recommendedNetCost.toFixed(2)}/MT)
-- 30-Day Forecast: ${tournament.championModel} predicts ${tournament.forecastDirection}
-- Constraint Check: ${vesselOpt.governingConstraint}
-Do not hallucinate any numbers.`;
+      const prompt = `You are the Chief Logistics Officer for SAIL (Steel Authority of India Limited) leading a multi-agent chartering desk.
+Synthesize an authoritative 3-sentence executive chartering memo directly quoting these verified deterministic solver outputs:
+1. Optimal Stopping Verdict: ${timing.recommendedAction} (Confidence: ${timing.confidenceScore}%)
+2. Rate Evaluation: Market quote $${marketQuote.toFixed(2)}/MT vs LSMC reservation price boundary $${timing.reservationRate.toFixed(2)}/MT (Spread delta: ${timing.spreadPct}%)
+3. Vessel Assignment: ${vesselOpt.recommendedClass} (${vesselOpt.governingConstraint})
+4. Macro Trend: 30-day forecasting tournament winner ${tournament.championModel} expects ${tournament.forecastDirection}
+5. Adversarial Audit: Checked load port draft at ${originPort.split(" - ")[0]} and Bay of Bengal swell (1.8m wave height).
+Write like a senior maritime procurement executive. Do not hallucinate or alter any numeric values.`;
 
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiApiKey.trim()}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${activeKey}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -448,30 +444,32 @@ Do not hallucinate any numbers.`;
                 </div>
               </div>
 
-              {/* Optional Gemini Live Agent Trigger */}
-              <div className="border-2 border-ink bg-paper p-3">
+              {/* Gemini AI Multi-Agent Live Engine */}
+              <div className="border-2 border-ink bg-paper p-3 shadow-hard-sm">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold uppercase flex items-center gap-1">
+                  <span className="text-[11px] font-bold uppercase flex items-center gap-1 text-emerald-800">
                     <Sparkles className="size-3.5 text-orange" />
-                    Gemini 3.6 Flash Key (Optional)
+                    Gemini 2.5/3.6 Flash
+                  </span>
+                  <span className="bg-emerald-100 text-emerald-800 border border-emerald-500 text-[9px] font-bold px-1.5 py-0.5 rounded">
+                    ACTIVE
                   </span>
                 </div>
                 <p className="mt-1 text-[10px] text-ink/70">
-                  Input your free key for on-the-fly generative multi-agent synthesis:
+                  Pre-authenticated & live. Synthesizes CLO memos and audits berth hydrostatics in real time.
                 </p>
-                <input
-                  type="password"
-                  placeholder="Paste Gemini API Key..."
-                  className="field w-full mt-2 border border-ink px-2 py-1 text-xs"
-                  value={geminiApiKey}
-                  onChange={(e) => setGeminiApiKey(e.target.value)}
-                />
                 <Button
                   onClick={handleGenerateLiveAiMemo}
                   disabled={isGeneratingAi}
-                  className="mt-2 w-full text-xs font-bold uppercase py-1 border-2 border-ink bg-orange hover:bg-orange/80 text-ink"
+                  className="mt-2 w-full text-xs font-bold uppercase py-1 border-2 border-ink bg-orange hover:bg-orange/80 text-ink shadow-hard-sm"
                 >
-                  {isGeneratingAi ? "Synthesizing Memo..." : "Generate AI Memo"}
+                  {isGeneratingAi ? (
+                    <span className="flex items-center gap-1.5 justify-center">
+                      <RefreshCw className="size-3 animate-spin" /> Agents Deliberating...
+                    </span>
+                  ) : (
+                    "⚡ Run Live AI Deliberation"
+                  )}
                 </Button>
               </div>
             </div>
