@@ -166,6 +166,7 @@ function LaycanPage() {
   // Live resolved market values (updated from API responses)
   const [liveBdryPrice, setLiveBdryPrice] = useState<number | null>(null);
   const [liveBdryVol, setLiveBdryVol] = useState<number | null>(null);
+  const [liveBdryReturn, setLiveBdryReturn] = useState<number | null>(null);
   const [liveBrentCrude, setLiveBrentCrude] = useState<number | null>(null);
   const [liveWaveHeight, setLiveWaveHeight] = useState<number | null>(null);
   const [liveWeatherRisk, setLiveWeatherRisk] = useState<string>("UNKNOWN");
@@ -193,6 +194,7 @@ function LaycanPage() {
       const annVol = Math.sqrt(variance * 252);
       setLiveBdryPrice(Number(latest.toFixed(2)));
       setLiveBdryVol(Number(annVol.toFixed(4)));
+      setLiveBdryReturn(Number(logReturn.toFixed(5)));
       setLiveBdryHistory(closes.slice(-30));
       setBdryFeed({ status: "ok", latencyMs, fetchedAt: new Date().toISOString(), error: null, payload: { bdry_close: Number(latest.toFixed(2)), log_return_1d: Number(logReturn.toFixed(5)), annualized_vol: Number(annVol.toFixed(4)), data_points: closes.length, transformation: "log(P_t/P_{t-1}) → σ*√252 → LSMC volatility input" } });
     } catch (e: any) {
@@ -291,6 +293,7 @@ function LaycanPage() {
   const port = PORTS_DATABASE[portCode] || PORTS_DATABASE["INPRT"];
   const bdryPrice = liveBdryPrice ?? 16.07;
   const bdryVol = liveBdryVol ?? 0.3446;
+  const bdryReturn = liveBdryReturn ?? 0.022;
   const computedSpotRate = Number((22.8 + (bdryPrice - 15.0) * 0.2).toFixed(2));
   const marketQuote = autoRateFromBdry ? computedSpotRate : manualQuote;
 
